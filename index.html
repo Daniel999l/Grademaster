@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+     body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #99CCCC;
+      color: #003333;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 1rem;
+      padding: 3px;
+    }
+</style>
+<body>
+    
+</body>
+<script>
+  alert("Enter any 4 subject");
+  var one = prompt("Enter your first subject");
+  var two = prompt("Enter your Second subject");
+  var third = prompt("Enter your third subject");
+  var ford = prompt("Enter your fourth subject");
+  alert("Enter your marks");
+
+  var javaS = parseInt(prompt("Enter your " +one+  " mark"));
+  var java = parseInt(prompt("Enter your " +two+  " mark"));
+  var jav = parseInt(prompt("Enter your " +third+  " mark"));
+  var fordo = parseInt(prompt("Enter your " +ford+  " mark"));
+
+  var pass = ("Pass");
+  var c = ("C");
+  var b = ("B");
+  var a = ("A");
+
+  var m = ("35");
+  var n = ("59");
+  var o = ("69");
+  var p = ("70");
+
+ 
+  //one
+  if (javaS<=m) {
+    document.write("Your score in the " +one + " exam is " + javaS + " and your grade is " +pass+ "</br>"+ "</br>");
+  } else {
+    if (javaS>m && javaS<=n) {
+        document.write("Your score in the " +one + " exam is " + javaS + " and your grade is " +c+ "</br>"+ "</br>");
+    } else {
+        if (javaS>n && javaS<=o) {
+        document.write("Your score in the " +one + " exam is " + javaS + " and your grade is " +b+ "</br>"+ "</br>");
+    } else {
+        if (javaS=>p) {
+        document.write("Your score in the " +one + " exam is " + javaS + " and your grade is " +a+ "</br>"+ "</br>");
+    }
+    }  
+    }
+  }
+
+  if (java<=m) {
+    document.write("Your score in the " +two + " exam is " + java + " and your grade is " +pass+ "</br>"+ "</br>");
+  } else {
+    if (java>m && java<=n) {
+        document.write("Your score in the " +two + " exam is " + java + " and your grade is " +c+ "</br>"+ "</br>");
+    } else {
+        if (java>n && java<=o) {
+        document.write("Your score in the " +two + " exam is " + java + " and your grade is " +b+ "</br>"+ "</br>");
+    } else {
+        if (java=>p) {
+        document.write("Your score in the " +two + " exam is " + java + " and your grade is " +a+ "</br>"+ "</br>");
+    }
+    }  
+    }
+  }
+
+  if (jav<=m) {
+    document.write("Your score in the " +third + " exam is " + jav + " and your grade is " +pass+ "</br>"+ "</br>");
+  } else {
+    if (jav>m && jav<=n) {
+        document.write("Your score in the " +third + " exam is " + jav + " and your grade is " +c+ "</br>"+ "</br>");
+    } else {
+        if (jav>n && jav<=o) {
+        document.write("Your score in the " +third + " exam is " + jav + " and your grade is " +b+ "</br>"+ "</br>");
+    } else {
+        if (jav=>p) {
+        document.write("Your score in the " +third + " exam is " + jav + " and your grade is " +a+ "</br>"+ "</br>");
+    }
+    }  
+    }
+  }
+   //ford
+   if (fordo<=m) {
+    document.write("Your score in the " +ford + " exam is " + fordo + " and your grade is " +pass+ "</br>"+ "</br>");
+  } else {
+    if (fordo>m && fordo<=n) {
+        document.write("Your score in the " +ford + " exam is " + fordo + " and your grade is " +c+ "</br>"+ "</br>");
+    } else {
+        if (fordo>n && fordo<=o) {
+            document.write("Your score in the " +ford + " exam is " + fordo + " and your grade is " +b+ "</br>"+ "</br>");
+    } else {
+        if (fordo=>p) {
+            document.write("Your score in the " +ford + " exam is " + fordo + " and your grade is " +a+ "</br>"+ "</br>");
+    }
+    }  
+    }
+  }
+  var total = javaS + java + jav + fordo;
+  document.write("Your total marks is " + total + "</br>"+ "</br>");
+  var av = Math.round (total/4);
+  document.write ("Your average mark is ", +av+ "</br>" + "</br>");
+  
+  if (av<=m) {
+    document.write("Your Average grade is " + pass + "</br>"+ "</br>");
+  } else {
+    if (av>m && av<=n) {
+        document.write("Your Average grade is " + c + "</br>"+ "</br>");
+    } else {
+        if (av>n && av<=o) {
+            document.write("Your Average grade is " +  b + "</br>"+ "</br>");
+    } else {
+        if (av=>p) {
+            document.write("Your Average grade is " + a + "</br>"+ "</br>");
+    }
+    }  
+    }
+  }
+
+// Define thresholds
+var passThreshold = 140;  // Equivalent to 35 on a 100 point scale
+var cThreshold = 236;     // Equivalent to 59 on a 100 point scale
+var bThreshold = 276;     // Equivalent to 69 on a 100 point scale
+var aThreshold = 280;     // Equivalent to 70 on a 100 point scale
+
+// Determine the grade and set the message
+var message;
+if (total < passThreshold) {
+    message = "Don't be discouraged! Every mistake is a learning step towards success.";
+} else if (total >= passThreshold && total <= cThreshold) {
+    message = "Good job on passing! You've laid a solid foundation to build even more success.";
+} else if (total > cThreshold && total <= bThreshold) {
+    message = "Congratulations on earning a C! Your efforts are paying off. Let’s aim for even higher heights!";
+} else if (total > bThreshold && total < aThreshold) {
+    message = "Great work earning a B! You're doing wonderfully well. Keep striving for the top!";
+} else if (total >= aThreshold) {
+    message = "Outstanding performance with an A! Your dedication is truly inspiring. Keep leading the way!";
+}
+
+// Output the message
+document.write(message);
+
+</script>
+</html>
