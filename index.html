@@ -1,126 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--Made by Daniel-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #99CCCC;
+            color: #003333;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 1rem;
+            padding: 3px;
+        }
+        #container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: calc(100% - 20px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
 </head>
-<style>
-     body, html {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #99CCCC;
-      color: #003333;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif !important;
-      font-size: 1rem;
-      padding: 3px;
-    }
-</style>
 <body>
-    
+    <div id="container">
+        <h1>Grade Calculator</h1>
+       <!-- <input type="text" id="subject1" placeholder="Enter your first subject">
+        <input type="text" id="subject2" placeholder="Enter your second subject">
+        <input type="text" id="subject3" placeholder="Enter your third subject">
+        <input type="text" id="subject4" placeholder="Enter your fourth subject"> -->
+        <button onclick="calculateGrades()">Calculate Grades</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function calculateGrades() {
+            alert("Enter any 4 subjects.");
+            var subject1 = prompt("Enter your first subject:");
+            var subject2 = prompt("Enter your second subject:");
+            var subject3 = prompt("Enter your third subject:");
+            var subject4 = prompt("Enter your fourth subject:");
+            alert("Enter your marks.");
+
+            var mark1 = parseInt(prompt("Enter your " + subject1 + " mark:"));
+            var mark2 = parseInt(prompt("Enter your " + subject2 + " mark:"));
+            var mark3 = parseInt(prompt("Enter your " + subject3 + " mark:"));
+            var mark4 = parseInt(prompt("Enter your " + subject4 + " mark:"));
+
+            var passGrade = "Pass";
+            var cGrade = "C";
+            var bGrade = "B";
+            var aGrade = "A";
+
+            var m = 35;
+            var n = 59;
+            var o = 69;
+            var p = 70;
+
+            var grade1, grade2, grade3, grade4;
+
+            if (mark1 <= m) {
+                grade1 = passGrade;
+            } else if (mark1 <= n) {
+                grade1 = cGrade;
+            } else if (mark1 <= o) {
+                grade1 = bGrade;
+            } else {
+                grade1 = aGrade;
+            }
+
+            if (mark2 <= m) {
+                grade2 = passGrade;
+            } else if (mark2 <= n) {
+                grade2 = cGrade;
+            } else if (mark2 <= o) {
+                grade2 = bGrade;
+            } else {
+                grade2 = aGrade;
+            }
+
+            if (mark3 <= m) {
+                grade3 = passGrade;
+            } else if (mark3 <= n) {
+                grade3 = cGrade;
+            } else if (mark3 <= o) {
+                grade3 = bGrade;
+            } else {
+                grade3 = aGrade;
+            }
+
+            if (mark4 <= m) {
+                grade4 = passGrade;
+            } else if (mark4 <= n) {
+                grade4 = cGrade;
+            } else if (mark4 <= o) {
+                grade4 = bGrade;
+            } else {
+                grade4 = aGrade;
+            }
+
+            document.getElementById('message').innerHTML =
+                "Your grade in " + subject1 + " is " + grade1 + ".<br><br>" +
+                "Your grade in " + subject2 + " is " + grade2 + ".<br><br>" +
+                "Your grade in " + subject3 + " is " + grade3 + ".<br><br>" +
+                "Your grade in " + subject4 + " is " + grade4 + ".<br><br>";
+
+            var totalMarks = mark1 + mark2 + mark3 + mark4;
+            document.getElementById('message').innerHTML +=
+                "Your total marks is " + totalMarks + ".<br><br>";
+
+            var averageMarks = Math.round(totalMarks / 4);
+            document.getElementById('message').innerHTML +=
+                "Your average mark is " + averageMarks + ".<br><br>";
+
+            var passThreshold = 140;
+            var cThreshold = 236;
+            var bThreshold = 276;
+            var aThreshold = 280;
+
+            var message;
+
+            if (totalMarks < passThreshold) {
+                message = "Don't be discouraged! Every mistake is a learning step towards success.";
+            } else if (totalMarks <= cThreshold) {
+                message = "Good job on passing! You've laid a solid foundation to build even more success.";
+            } else if (totalMarks <= bThreshold) {
+                message = "Congratulations on earning a C! Your efforts are paying off. Let’s aim for even higher heights!";
+            } else if (totalMarks < aThreshold) {
+                message = "Great work earning a B! You're doing wonderfully well. Keep striving for the top!";
+            } else if (totalMarks >= aThreshold) {
+                message = "Outstanding performance with an A! Your dedication is truly inspiring. Keep leading the way!";
+            }
+
+            document.getElementById('message').innerHTML += message;
+        }
+    </script>
 </body>
-<script>
-    alert("Enter any 4 subjects.");
-    var subject1 = prompt("Enter your first subject:");
-    var subject2 = prompt("Enter your second subject:");
-    var subject3 = prompt("Enter your third subject:");
-    var subject4 = prompt("Enter your fourth subject:");
-    alert("Enter your marks.");
-
-    var mark1 = parseInt(prompt("Enter your " + subject1 + " mark:"));
-    var mark2 = parseInt(prompt("Enter your " + subject2 + " mark:"));
-    var mark3 = parseInt(prompt("Enter your " + subject3 + " mark:"));
-    var mark4 = parseInt(prompt("Enter your " + subject4 + " mark:"));
-
-    var passGrade = "Pass";
-    var cGrade = "C";
-    var bGrade = "B";
-    var aGrade = "A";
-
-    var m = 35;
-    var n = 59;
-    var o = 69;
-    var p = 70;
-
-    var grade1, grade2, grade3, grade4;
-
-    if (mark1 <= m) {
-        grade1 = passGrade;
-    } else if (mark1 <= n) {
-        grade1 = cGrade;
-    } else if (mark1 <= o) {
-        grade1 = bGrade;
-    } else {
-        grade1 = aGrade;
-    }
-
-    if (mark2 <= m) {
-        grade2 = passGrade;
-    } else if (mark2 <= n) {
-        grade2 = cGrade;
-    } else if (mark2 <= o) {
-        grade2 = bGrade;
-    } else {
-        grade2 = aGrade;
-    }
-
-    if (mark3 <= m) {
-        grade3 = passGrade;
-    } else if (mark3 <= n) {
-        grade3 = cGrade;
-    } else if (mark3 <= o) {
-        grade3 = bGrade;
-    } else {
-        grade3 = aGrade;
-    }
-
-    if (mark4 <= m) {
-        grade4 = passGrade;
-    } else if (mark4 <= n) {
-        grade4 = cGrade;
-    } else if (mark4 <= o) {
-        grade4 = bGrade;
-    } else {
-        grade4 = aGrade;
-    }
-
-    document.write("Your grade in " + subject1 + " is " + grade1 + ".<br><br>");
-    document.write("Your grade in " + subject2 + " is " + grade2 + ".<br><br>");
-    document.write("Your grade in " + subject3 + " is " + grade3 + ".<br><br>");
-    document.write("Your grade in " + subject4 + " is " + grade4 + ".<br><br>");
-
-    var totalMarks = mark1 + mark2 + mark3 + mark4;
-    document.write("Your total marks is " + totalMarks + ".<br><br>");
-
-    var averageMarks = Math.round(totalMarks / 4);
-    document.write("Your average mark is " + averageMarks + ".<br><br>");
-
-    var passThreshold = 140;  
-    var cThreshold = 236;     
-    var bThreshold = 276;     
-    var aThreshold = 280;     
-
-    var message;
-
-    if (totalMarks < passThreshold) {
-        message = "Don't be discouraged! Every mistake is a learning step towards success.";
-    } else if (totalMarks <= cThreshold) {
-        message = "Good job on passing! You've laid a solid foundation to build even more success.";
-    } else if (totalMarks <= bThreshold) {
-        message = "Congratulations on earning a C! Your efforts are paying off. Let’s aim for even higher heights!";
-    } else if (totalMarks < aThreshold) {
-        message = "Great work earning a B! You're doing wonderfully well. Keep striving for the top!";
-    } else if (totalMarks >= aThreshold) {
-        message = "Outstanding performance with an A! Your dedication is truly inspiring. Keep leading the way!";
-    }
-
-    document.write(message);
-
-</script>
 </html>
